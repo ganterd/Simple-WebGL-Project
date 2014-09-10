@@ -189,6 +189,7 @@ function animate() {
 function handleKeyDown(event)
 {
 	_keysDown[event.keyCode] = true;
+	if(event.keyCode == 38 || event.keyCode == 40) return false;
 }
 
 function handleKeyUp(event)
@@ -268,7 +269,7 @@ var drawCube = function(cubePos, cubeSize, cubeFaceBuffers)
 		mvPopMatrix();
 	mvPopMatrix();
 }
-
+if(window.Event) window.captureEvents(Event.KEYDOWN);
 function updateInput()
 {
 	if(_keysDown[65])
